@@ -5,3 +5,6 @@ aclocal
 autoconf
 autoheader
 automake
+touch Makefile.am
+automake --add-missing
+./configure
