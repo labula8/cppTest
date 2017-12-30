@@ -1,5 +1,4 @@
 #include <iostream>
-//using namespace std;
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -9,11 +8,12 @@
 #include <libxml/tree.h>
 #include <libxml/xmlmemory.h>
 
-#define PHONE_BOOK_FILE     "phone_book.xml"
 #define ID_STR_LEN        16
 #define NAME_STR_LEN         32
 #define TEL_STR_LEN         16
 #define ADDR_STR_LEN         128
+
+using namespace std;
 
 //电话通讯录结构体
 typedef struct phone_t {
@@ -75,19 +75,18 @@ static int add_phone_node_to_root(xmlNodePtr root_node)
 	//创建一个phone节点
 	phone_node = create_phone_node(phone_item); 
 	if (phone_node == NULL) {
-	fprintf(stderr, "Failed to create phone node.\n");
-	goto FAILED;
+		fprintf(stderr, "Failed to create phone node.\n");
+		if (phone_item) {
+			free(phone_item);
+		}
+		return -1;
+
 	}
 	//根节点添加一个子节点
 	xmlAddChild(root_node, phone_node);
 	free(phone_item);
 
 	return 0;
-FAILED:
-	if (phone_item){
-	free(phone_item);
-	}
-	return -1;
 }
 
 //创建phone_books
@@ -170,25 +169,51 @@ FAILED:
 	return -1;
 }
 
+bool new_doc(const xmlChar * doc_name, xmlDocPtr doc)
+{
+        //创建一个xml 文档
+        doc = xmlNewDoc(doc_name);
+        if (doc == NULL)
+        {
+                fprintf(stderr, "Failed to new doc.\n");
+                return false;
+        }
+
+        return true;
+}
+
+
 int main(int argc, char *argv[])
 {
-	char *phone_book_file = PHONE_BOOK_FILE;
+	std::string sTemp = (char*)(BAD_CAST"1.2");
+
+	std::cout << sTemp << std::endl;
+
+	return 0;
+	
+	std::string phone_book_file = "phone_book.xml";
 
 	if (argc == 2) {
-	phone_book_file = argv[1];
+		phone_book_file = argv[1];
 	}
 
-	if (access(phone_book_file, F_OK) == 0) {
-	//文件存在，添加一个新的phone节点
-	add_phone_node(phone_book_file);
+	if (access(phone_book_file.c_str(), F_OK) == 0) {
+		//文件存在，添加一个新的phone节点
+		add_phone_node(phone_book_file.c_str());
 	}
 	else {
-	//文件不存在，创建一个信息的phone book
-	create_phone_books(phone_book_file);
+	//	xmlDocPtr doc = NULL;
+		//char doc_name[32] = (BAD_CAST"1.0");
+	//	new_doc(doc_name, doc);
+
+		//文件不存在，创建一个信息的phone book
+		create_phone_books(phone_book_file.c_str());
 	}
 
 	return 0;
 }
+
+
 /*
 int main()
 {
