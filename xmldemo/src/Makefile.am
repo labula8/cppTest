@@ -1,3 +1,7 @@
+#INCLUDE= -I
 AUTOMAKE_OPTIONS=foreign
-bin_PROGRAMS=hello
-hello_SOURCES=hello.cpp
+
+AM_CXXFLAGS = @CXXFLAGS_XML2@
+AM_LDFLAGS = @LIBS_XML2@
+bin_PROGRAMS = hello
+hello_SOURCES = hello.cpp

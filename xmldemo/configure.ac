@@ -18,6 +18,24 @@ AC_PROG_CXX
 
 # Checks for library functions.
 
+
+#check for libxml2 installation
+
+AC_ARG_WITH(libxml2,
+		AC_HELP_STRING(--with-libxml2, [libxml2 install directory (default=/usr/local)]),
+		[ac_with_libxml2=$withval],
+		[ac_with_libxml2=/usr/local])
+AC_CHECK_PROG(XML2_CONFIG, xml2-config, yes, no, "$ac_with_libxml2"/bin)
+if test "x$XML2_CONFIG" = "xyes"
+then
+		LIBS_XML2="`${ac_with_libxml2}/bin/xml2-config --libs`"
+		CXXFLAGS_XML2="`${ac_with_libxml2}/bin/xml2-config --cflags`"
+else
+		AC_MSG_ERROR(xml2-config not found !)
+fi
+AC_SUBST(LIBS_XML2)
+AC_SUBST(CXXFLAGS_XML2)
+
 AC_CONFIG_FILES([Makefile
 			src/Makefile
 			])
