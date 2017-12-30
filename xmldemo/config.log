@@ -51,31 +51,31 @@ PATH: /usr/local/include
 ## Core tests. ##
 ## ----------- ##
 
-configure:1845: checking for a BSD-compatible install
-configure:1913: result: /usr/bin/install -c
-configure:1924: checking whether build environment is sane
-configure:1979: result: yes
-configure:2130: checking for a thread-safe mkdir -p
-configure:2169: result: /usr/bin/mkdir -p
-configure:2176: checking for gawk
-configure:2192: found /usr/bin/gawk
-configure:2203: result: gawk
-configure:2214: checking whether make sets $(MAKE)
-configure:2236: result: yes
-configure:2265: checking whether make supports nested variables
-configure:2282: result: yes
-configure:2427: checking for g++
-configure:2443: found /usr/bin/g++
-configure:2454: result: g++
-configure:2481: checking for C++ compiler version
-configure:2490: g++ --version >&5
+configure:1844: checking for a BSD-compatible install
+configure:1912: result: /usr/bin/install -c
+configure:1923: checking whether build environment is sane
+configure:1978: result: yes
+configure:2129: checking for a thread-safe mkdir -p
+configure:2168: result: /usr/bin/mkdir -p
+configure:2175: checking for gawk
+configure:2191: found /usr/bin/gawk
+configure:2202: result: gawk
+configure:2213: checking whether make sets $(MAKE)
+configure:2235: result: yes
+configure:2264: checking whether make supports nested variables
+configure:2281: result: yes
+configure:2426: checking for g++
+configure:2442: found /usr/bin/g++
+configure:2453: result: g++
+configure:2480: checking for C++ compiler version
+configure:2489: g++ --version >&5
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-16)
 Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:2501: $? = 0
-configure:2490: g++ -v >&5
+configure:2500: $? = 0
+configure:2489: g++ -v >&5
 Using built-in specs.
 COLLECT_GCC=g++
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
@@ -83,55 +83,55 @@ Target: x86_64-redhat-linux
 Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
 Thread model: posix
 gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) 
-configure:2501: $? = 0
-configure:2490: g++ -V >&5
+configure:2500: $? = 0
+configure:2489: g++ -V >&5
 g++: error: unrecognized command line option '-V'
 g++: fatal error: no input files
 compilation terminated.
-configure:2501: $? = 4
-configure:2490: g++ -qversion >&5
+configure:2500: $? = 4
+configure:2489: g++ -qversion >&5
 g++: error: unrecognized command line option '-qversion'
 g++: fatal error: no input files
 compilation terminated.
-configure:2501: $? = 4
-configure:2521: checking whether the C++ compiler works
-configure:2543: g++    conftest.cpp  >&5
-configure:2547: $? = 0
-configure:2595: result: yes
-configure:2598: checking for C++ compiler default output file name
-configure:2600: result: a.out
-configure:2606: checking for suffix of executables
-configure:2613: g++ -o conftest    conftest.cpp  >&5
-configure:2617: $? = 0
-configure:2639: result: 
-configure:2661: checking whether we are cross compiling
-configure:2669: g++ -o conftest    conftest.cpp  >&5
-configure:2673: $? = 0
-configure:2680: ./conftest
-configure:2684: $? = 0
-configure:2699: result: no
-configure:2704: checking for suffix of object files
-configure:2726: g++ -c   conftest.cpp >&5
-configure:2730: $? = 0
-configure:2751: result: o
-configure:2755: checking whether we are using the GNU C++ compiler
-configure:2774: g++ -c   conftest.cpp >&5
-configure:2774: $? = 0
-configure:2783: result: yes
-configure:2792: checking whether g++ accepts -g
-configure:2812: g++ -c -g  conftest.cpp >&5
-configure:2812: $? = 0
-configure:2853: result: yes
-configure:2887: checking for style of include used by make
-configure:2915: result: GNU
-configure:2941: checking dependency style of g++
-configure:3052: result: gcc3
-configure:3089: checking for xml2-config
-configure:3105: found /usr/local/bin/xml2-config
-configure:3117: result: yes
-configure:3247: checking that generated files are newer than configure
-configure:3253: result: done
-configure:3276: creating ./config.status
+configure:2500: $? = 4
+configure:2520: checking whether the C++ compiler works
+configure:2542: g++    conftest.cpp  >&5
+configure:2546: $? = 0
+configure:2594: result: yes
+configure:2597: checking for C++ compiler default output file name
+configure:2599: result: a.out
+configure:2605: checking for suffix of executables
+configure:2612: g++ -o conftest    conftest.cpp  >&5
+configure:2616: $? = 0
+configure:2638: result: 
+configure:2660: checking whether we are cross compiling
+configure:2668: g++ -o conftest    conftest.cpp  >&5
+configure:2672: $? = 0
+configure:2679: ./conftest
+configure:2683: $? = 0
+configure:2698: result: no
+configure:2703: checking for suffix of object files
+configure:2725: g++ -c   conftest.cpp >&5
+configure:2729: $? = 0
+configure:2750: result: o
+configure:2754: checking whether we are using the GNU C++ compiler
+configure:2773: g++ -c   conftest.cpp >&5
+configure:2773: $? = 0
+configure:2782: result: yes
+configure:2791: checking whether g++ accepts -g
+configure:2811: g++ -c -g  conftest.cpp >&5
+configure:2811: $? = 0
+configure:2852: result: yes
+configure:2886: checking for style of include used by make
+configure:2914: result: GNU
+configure:2940: checking dependency style of g++
+configure:3051: result: gcc3
+configure:3088: checking for xml2-config
+configure:3104: found /usr/local/bin/xml2-config
+configure:3116: result: yes
+configure:3246: checking that generated files are newer than configure
+configure:3252: result: done
+configure:3275: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -297,21 +297,3 @@ target_alias=''
 #define VERSION "1.0"
 
 configure: exit 0
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by cppTest config.status 1.0, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status config.h
-
-on localhost.localdomain
-
-config.status:843: creating config.h
-config.status:1024: config.h is unchanged

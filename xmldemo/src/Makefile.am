@@ -3,5 +3,5 @@ AUTOMAKE_OPTIONS=foreign
 
 AM_CXXFLAGS = @CXXFLAGS_XML2@
 AM_LDFLAGS = @LIBS_XML2@
-bin_PROGRAMS = hello
-hello_SOURCES = hello.cpp
+bin_PROGRAMS = xmldemo
+xmldemo_SOURCES = xmldemo.cpp

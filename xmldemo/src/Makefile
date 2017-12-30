@@ -76,7 +76,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = hello$(EXEEXT)
+bin_PROGRAMS = xmldemo$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp
@@ -90,9 +90,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_hello_OBJECTS = hello.$(OBJEXT)
-hello_OBJECTS = $(am_hello_OBJECTS)
-hello_LDADD = $(LDADD)
+am_xmldemo_OBJECTS = xmldemo.$(OBJEXT)
+xmldemo_OBJECTS = $(am_xmldemo_OBJECTS)
+xmldemo_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -122,8 +122,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(hello_SOURCES)
-DIST_SOURCES = $(hello_SOURCES)
+SOURCES = $(xmldemo_SOURCES)
+DIST_SOURCES = $(xmldemo_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -241,7 +241,7 @@ top_srcdir = ..
 AUTOMAKE_OPTIONS = foreign
 AM_CXXFLAGS = -I/usr/local/include/libxml2
 AM_LDFLAGS = -L/usr/local/lib -lxml2 -liconv -lm -ldl
-hello_SOURCES = hello.cpp
+xmldemo_SOURCES = xmldemo.cpp
 all: all-am
 
 .SUFFIXES:
@@ -319,9 +319,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-hello$(EXEEXT): $(hello_OBJECTS) $(hello_DEPENDENCIES) $(EXTRA_hello_DEPENDENCIES) 
-	@rm -f hello$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(hello_OBJECTS) $(hello_LDADD) $(LIBS)
+xmldemo$(EXEEXT): $(xmldemo_OBJECTS) $(xmldemo_DEPENDENCIES) $(EXTRA_xmldemo_DEPENDENCIES) 
+	@rm -f xmldemo$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(xmldemo_OBJECTS) $(xmldemo_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -329,7 +329,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/hello.Po
+include ./$(DEPDIR)/xmldemo.Po
 
 .cpp.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
