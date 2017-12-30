@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR([src/hello.cpp])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE(main, 1.0)
 # Checks for programs.
-AC_PROG_CC
+#AC_PROG_CC
 AC_PROG_CXX
 
 # Checks for libraries.
@@ -18,6 +18,8 @@ AC_PROG_CXX
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile
+			src/Makefile
+			])
 
 AC_OUTPUT
