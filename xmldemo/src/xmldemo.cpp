@@ -13,6 +13,14 @@
 #define TEL_STR_LEN         16
 #define ADDR_STR_LEN         128
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(x) { if(x) { delete (x); (x) = NULL; } }
+#endif
+
+#ifndef SAFE_FREE_DOC
+#define SAFE_FREE_DOC(x) { if(x) { xmlFreeDoc(x); (x) = NULL; } }
+#endif
+
 using namespace std;
 
 //电话通讯录结构体
@@ -23,8 +31,23 @@ typedef struct phone_t {
 	char address[ADDR_STR_LEN];  //地址
 }phone;
 
+bool new_xmldoc(const xmlChar * doc_name, xmlDocPtr doc)
+{
+        //创建一个xml 文档
+        doc = xmlNewDoc(doc_name);
+        if (doc == NULL)
+        {
+                fprintf(stderr, "Failed to new doc.\n");
+                return false;
+        }
+
+	printf("%s, ok.\n", __FUNCTION__);
+
+        return true;
+}
+
 //设置通讯录项
-static void set_phone_item(phone *phone_item)
+void set_phone_item(phone *phone_item)
 {
 	assert(phone_item);
 
@@ -35,7 +58,7 @@ static void set_phone_item(phone *phone_item)
 }
 
 //创建phone节点
-static xmlNodePtr create_phone_node(const phone *phone_item)
+xmlNodePtr create_phone_node(const phone *phone_item)
 {
 	assert(phone_item);
 	
@@ -59,8 +82,10 @@ static xmlNodePtr create_phone_node(const phone *phone_item)
 }
 
 //向根节点中添加一个phone节点
-static int add_phone_node_to_root(xmlNodePtr root_node)
+int add_phone_node_to_root(xmlNodePtr root_node)
 {
+	cout << __FUNCTION__ << endl;
+
 	xmlNodePtr phone_node = NULL;
 	phone *phone_item = NULL;
 
@@ -90,48 +115,46 @@ static int add_phone_node_to_root(xmlNodePtr root_node)
 }
 
 //创建phone_books
-static int create_phone_books(const char *phone_book_file)
+int create_phone_books(const char *phone_book_file)
 {
+	cout << __FUNCTION__ << endl;
+
 	assert(phone_book_file);
 
 	xmlDocPtr doc = NULL;
 	xmlNodePtr root_node = NULL;
 
 	//创建一个xml 文档
-	doc = xmlNewDoc(BAD_CAST"1.0");
-	if (doc == NULL) {
-	fprintf(stderr, "Failed to new doc.\n");
-	return -1;
+	xmlChar* doc_name = BAD_CAST"1.0";	
+	if(!new_xmldoc( doc_name, doc))
+	{
+		return -1;
 	}
 
 	//创建根节点
 	root_node = xmlNewNode(NULL, BAD_CAST"phone_books");
 	if (root_node == NULL) {
-	fprintf(stderr, "Failed to new root node.\n");
-	goto FAILED;
+		fprintf(stderr, "Failed to new root node.\n");
+		SAFE_FREE_DOC(doc);
+		return -1;
 	}
 	//将根节点添加到文档中
 	xmlDocSetRootElement(doc, root_node);
 
 	if (add_phone_node_to_root(root_node) != 0) {
-	fprintf(stderr, "Failed to add a new phone node.\n");
-	goto FAILED;
+		fprintf(stderr, "Failed to add a new phone node.\n");
+		SAFE_FREE_DOC(doc);
+		return -1;
 	}
 	//将文档保存到文件中，按照utf-8编码格式保存
 	xmlSaveFormatFileEnc(phone_book_file, doc, "UTF-8", 1);
 	//xmlSaveFile("test.xml", doc);
-	xmlFreeDoc(doc);
+	SAFE_FREE_DOC(doc);
 
 	return 0; 
-FAILED:
-	if (doc) {
-	xmlFreeDoc(doc);
-	}
-
-	return -1;
 }
 
-static int add_phone_node(const char *phone_book_file)
+int add_phone_node(const char *phone_book_file)
 {
 	assert(phone_book_file);
 
@@ -142,54 +165,38 @@ static int add_phone_node(const char *phone_book_file)
 	
 	doc = xmlParseFile(phone_book_file);
 	if (doc == NULL) {
-	fprintf(stderr, "Failed to parser xml file:%s\n", phone_book_file);
-	return -1;
+		fprintf(stderr, "Failed to parser xml file:%s\n", phone_book_file);
+		return -1;
 	}
 
 	root_node = xmlDocGetRootElement(doc);
 	if (root_node == NULL) {
-	fprintf(stderr, "Failed to get root node.\n");
-	goto FAILED;
+		fprintf(stderr, "Failed to get root node.\n");
+		SAFE_FREE_DOC(doc);
+		return -1;
 	}
 	
 	if (add_phone_node_to_root(root_node) != 0) {
-	fprintf(stderr, "Failed to add a new phone node.\n");
-	goto FAILED;
+		fprintf(stderr, "Failed to add a new phone node.\n");
+		SAFE_FREE_DOC(doc);
+		return -1;
 	}
 	//将文档保存到文件中，按照utf-8编码格式保存
 	xmlSaveFormatFileEnc(phone_book_file, doc, "UTF-8", 1);
-	xmlFreeDoc(doc);
+	SAFE_FREE_DOC(doc);
 
 	return 0;
-FAILED:
-	if (doc) {
-	xmlFreeDoc(doc);
-	}
-
-	return -1;
 }
 
-bool new_doc(const xmlChar * doc_name, xmlDocPtr doc)
-{
-        //创建一个xml 文档
-        doc = xmlNewDoc(doc_name);
-        if (doc == NULL)
-        {
-                fprintf(stderr, "Failed to new doc.\n");
-                return false;
-        }
 
-        return true;
-}
 
 
 int main(int argc, char *argv[])
 {
-	std::string sTemp = (char*)(BAD_CAST"1.2");
 
-	std::cout << sTemp << std::endl;
-
-	return 0;
+	//std::string sTemp = (char*)(BAD_CAST"1.2");
+	//std::cout << sTemp << std::endl;
+	//return 0;
 	
 	std::string phone_book_file = "phone_book.xml";
 
@@ -202,10 +209,6 @@ int main(int argc, char *argv[])
 		add_phone_node(phone_book_file.c_str());
 	}
 	else {
-	//	xmlDocPtr doc = NULL;
-		//char doc_name[32] = (BAD_CAST"1.0");
-	//	new_doc(doc_name, doc);
-
 		//文件不存在，创建一个信息的phone book
 		create_phone_books(phone_book_file.c_str());
 	}
