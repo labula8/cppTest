@@ -49,6 +49,8 @@ bool new_xmldoc(const xmlChar * doc_name, xmlDocPtr doc)
 //设置通讯录项
 void set_phone_item(phone *phone_item)
 {
+	cout << __FUNCTION__ << endl;
+
 	assert(phone_item);
 
 	phone_item->id = 10;
@@ -92,8 +94,8 @@ int add_phone_node_to_root(xmlNodePtr root_node)
 	//创建一个新的phone
 	phone_item = (phone *)malloc(sizeof(phone));
 	if (phone_item == NULL) {
-	fprintf(stderr, "Failed to malloc memory.\n");
-	return -1;
+		fprintf(stderr, "Failed to malloc memory.\n");
+		return -1;
 	}
 	set_phone_item(phone_item);
 
@@ -105,11 +107,11 @@ int add_phone_node_to_root(xmlNodePtr root_node)
 			free(phone_item);
 		}
 		return -1;
-
 	}
+
 	//根节点添加一个子节点
 	xmlAddChild(root_node, phone_node);
-	free(phone_item);
+	SAFE_DELETE(phone_item);
 
 	return 0;
 }
@@ -118,6 +120,7 @@ int add_phone_node_to_root(xmlNodePtr root_node)
 int create_phone_books(const char *phone_book_file)
 {
 	cout << __FUNCTION__ << endl;
+	cout << "phone_book_file: " << phone_book_file << endl;
 
 	assert(phone_book_file);
 
@@ -210,7 +213,8 @@ int main(int argc, char *argv[])
 	}
 	else {
 		//文件不存在，创建一个信息的phone book
-		create_phone_books(phone_book_file.c_str());
+		int ret = create_phone_books(phone_book_file.c_str());
+		cout << "ret: " << ret << endl;
 	}
 
 	return 0;
