@@ -8,6 +8,9 @@
 #include "todo.h"
 #include "hello.h"
 #include "endian.h"
+#include "gets.h"
+#include "star.h"
+#include "char.h"
 
 void test()
 {
@@ -16,8 +19,11 @@ void test()
 	//test_hello();
 	//todo();
 
-	unsigned int num = 0x01020304;
-	little_end(num);
+	//unsigned int num = 0x01020304;
+	//little_end(num);
+	//test_gets();
+	//test_star();
+	test_char();
 }
 
 int main()
