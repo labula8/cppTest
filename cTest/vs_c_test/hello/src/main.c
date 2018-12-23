@@ -1,26 +1,34 @@
 
 #include <stdio.h>
-
-//system("xxx")
 #include <stdlib.h>
 
 //linux
 //#include <unistd.h>
 
 #include "todo.h"
+#include "hello.h"
+#include "endian.h"
 
 void test()
 {
-	todo();
+	//fun_void();
+	//test_baoliu();
+	//test_hello();
+	//todo();
+
+	unsigned int num = 0x01020304;
+	little_end(num);
 }
 
 int main()
 {
-	printf("hello!");
+	printf("== hello! ==\n");
 	test();
 
-	//pause();
-	system("pause");
+	printf("== exit! ==\n");
 
-	return 0;
+	//pause();
+	system("pause"); //stdlib.h
+	return EXIT_SUCCESS; //stdlib.h
+	//return 0;
 }

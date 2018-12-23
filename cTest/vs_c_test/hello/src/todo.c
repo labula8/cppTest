@@ -272,7 +272,7 @@ int todo()
 	int array[200] = { 0 };
 	int array_out[200] = { 0 };
 	int pos_start = 100;
-	int cur_value = 235;// 247;
+	int cur_value = 232;// 235;// 247;
 
 	stCMD cmd[6] = {
 		{ Q1_STATE, ONE,	ONE, RIGHT, Q1_STATE },

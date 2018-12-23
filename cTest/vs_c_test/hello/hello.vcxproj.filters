@@ -21,9 +21,24 @@
     <ClCompile Include="src\todo.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\hello.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\endian.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\todo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hello.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\endian.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
