@@ -1,4 +1,4 @@
-hello.o: hello.cpp /usr/include/stdc-predef.h \
+hello.o: hello.cpp /usr/include/stdc-predef.h common.h \
  /usr/include/c++/4.8.2/iostream \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -662,9 +662,11 @@ hello.o: hello.cpp /usr/include/stdc-predef.h \
  /usr/local/include/boost/math/tools/real_cast.hpp \
  /usr/local/include/boost/integer.hpp \
  /usr/local/include/boost/integer_fwd.hpp \
- /usr/local/include/boost/detail/basic_pointerbuf.hpp
+ /usr/local/include/boost/detail/basic_pointerbuf.hpp t_log.h
 
 /usr/include/stdc-predef.h:
+
+common.h:
 
 /usr/include/c++/4.8.2/iostream:
 
@@ -2091,3 +2093,5 @@ hello.o: hello.cpp /usr/include/stdc-predef.h \
 /usr/local/include/boost/integer_fwd.hpp:
 
 /usr/local/include/boost/detail/basic_pointerbuf.hpp:
+
+t_log.h:
