@@ -5,7 +5,6 @@
 #include <queue>
 #include <map>
 #include <iostream>
-#include <stdio.h>
 
 //#define _DEBUG
 
@@ -248,12 +247,16 @@ public:
 #endif
         return _SumTree(_root);
     }
+
+    //左边节点值总和
     T SumTree_Left() {
 #ifdef _DEBUG
         cout << __FUNCTION__ << endl;
 #endif
         return _SumTree(_root->_left);
     }
+
+    //右边节点值总和
     T SumTree_Right() {
 #ifdef _DEBUG
         cout << __FUNCTION__ << endl;
@@ -261,6 +264,7 @@ public:
         return _SumTree(_root->_right);
     }
 
+    //左右节点差值
     T SumTree_Dis() {
         T t_left = SumTree_Left();
         T t_right = SumTree_Right();
@@ -382,6 +386,7 @@ protected:
     }
     */
 
+    //查找map中是否存在index下标映射
     bool isInMap(int index, std::map<int, T> &map1) {
         std::map<int, T>::iterator iter = map1.find(index);
         if (iter != map1.end()) {
@@ -392,6 +397,7 @@ protected:
         }
     }
 
+    //通过index下标，增加节点
     bool addNode_by_index(Node **root, T* arr, int index, std::map<int, T> &map1) {
         if (!isInMap(index, map1))
         {
@@ -418,6 +424,7 @@ protected:
         return false;
     }    
 
+    //增加父节点的子节点
     bool addNode(Node **fa, Node *son)
     {
         if(son == NULL) {
@@ -447,6 +454,7 @@ protected:
         return true;
     }
 
+    //销毁节点
 	void Destory(Node* root) {
 		assert(root);
         if (root->_left != NULL) {
@@ -464,6 +472,8 @@ protected:
 		root = NULL;
 		return;
 	}
+
+    //递归拷贝构造节点
 	Node* Copy(Node* root)
 	{
         if (root == NULL) { return NULL;  }
@@ -473,6 +483,7 @@ protected:
 		newnode->_right = Copy(root->_right);
 		return newnode;
 	}
+    //递归先序遍历
 	void _PrevOrder(Node* root)
 	{
         if (root == NULL) { return; }
@@ -481,6 +492,7 @@ protected:
 		_PrevOrder(root->_left);
 		_PrevOrder(root->_right);
 	}
+    //递归中序遍历
 	void _InOrder(Node* root)
 	{
         if (root == NULL) { return; }
@@ -489,6 +501,7 @@ protected:
 		cout << root->_data << " ";
 		_InOrder(root->_right);
 	}
+    //递归后序遍历
 	void _PostOrder(Node* root)
 	{
         if (root == NULL) { return; }
@@ -497,12 +510,14 @@ protected:
 		_PostOrder(root->_right);
 		cout << root->_data << " ";
 	}
+    //递归获取节点数目
 	size_t _Size(Node* root)
 	{
         if (root == NULL) { return 0; }
 			
 		return _Size(root->_left) + _Size(root->_right) + 1;
 	}
+    //递归获取节点深度
 	size_t _Depth(Node* root)
 	{
         if (root == NULL) { return 0; }
@@ -512,6 +527,7 @@ protected:
 
 		return leftDepth > rightDepth ? leftDepth + 1: rightDepth + 1;
 	}
+    //递归获取叶子节点数目
 	void _GetLeafSize(Node* root,size_t &count)	{
 		if (root->_left == NULL && root->_right == NULL) {
 			count++;
@@ -524,6 +540,7 @@ protected:
             _GetLeafSize(root->_right, count);
         }			
 	}
+    //递归获取，某层节点数目
 	size_t _GetKLevelSize(Node* root, size_t k)	{
         if (root == NULL) { return 0; }
 			
@@ -533,6 +550,7 @@ protected:
 		return _GetKLevelSize(root->_left,k-1) + _GetKLevelSize(root->_right,k-1);
 	}
 
+    //递归获取节点总值
     T _SumTree(Node *root) {
         if (root == NULL) {
             T t = T();
@@ -663,9 +681,11 @@ void TestBinaryTree_Input()
         //printf("You input num=%d \n", t_tmp);
     }
 
-    //for (i = 0; i < n; i++) {
-    //    printf("arr[%d]=%d \n", i, arr[i]);
-    //}
+#ifdef _DEBUG
+    for (i = 0; i < n; i++) {
+        printf("arr[%d]=%d \n", i, arr[i]);
+    }
+#endif
 
     cout << "输入节点边 (Ctrl+Z结束):" << endl;
 
@@ -677,21 +697,18 @@ void TestBinaryTree_Input()
     int count_ch = 0;
     while (cin >> edge_a >> edge_b)
     {  
-        //printf("You input edge_a=%d, edge_b=%d \n", edge_a, edge_b);
+#ifdef _DEBUG
+        cout << "You input edge_a=" << edge_a << ", edge_b=" << edge_b << endl;
+#endif
         if (j < max_edges) {
             arr_edge[j][0] = edge_a;
             arr_edge[j][1] = edge_b;
             j++;
         }
         else {
-            //printf("input edges too much. max_edges=%d \n", max_edges);
+            cout <<  "input edges too much. max_edges=" << max_edges << endl;
             break;
         }
-        /* Ctrl + Z
-        if (cin.get() == '\n' && cin.get() == '\n') {
-            break;
-        }
-        */
     }
 
     int arr_size = n;
@@ -703,5 +720,4 @@ void TestBinaryTree_Input()
         delete arr;
         arr = NULL;
     }
-
 }
