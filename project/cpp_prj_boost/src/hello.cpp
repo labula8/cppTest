@@ -1,6 +1,9 @@
-#include <iostream>
+//#include <iostream>
+#include "common.h"
 
 #include <boost/lexical_cast.hpp>
+
+#include "t_log.h"
 
 using namespace std;
 
@@ -29,5 +32,7 @@ int main()
 {	
 	cout << "hello!" << endl;
 	t_test();
+    //t_log();
+
 	return 0;
 }
