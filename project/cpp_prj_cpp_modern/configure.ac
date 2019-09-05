@@ -21,6 +21,6 @@ AC_PROG_CXX
 AC_CONFIG_FILES([Makefile
 			src/Makefile
 			])
-CXXFLAGS="-Wall -std=c++17"
+CXXFLAGS="-Wall -std=c++17 -DSTD_CPP_17"
 
 AC_OUTPUT
