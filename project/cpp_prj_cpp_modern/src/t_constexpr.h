@@ -2,6 +2,8 @@
 
 #define LEN 10
 
+using namespace std;
+
 int len_foo() {
     int i = 2;
     return i;
@@ -40,7 +42,14 @@ int t_constexpr() {
     char arr_6[len_foo_constexpr() + 1]; // legal
 
     // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
-    std::cout << fibonacci(10) << std::endl;
+    std::cout << "fibonacci(10)=" << fibonacci(10) << std::endl;
+
+	constexpr int n_constexpr = 8;
+	int n2 = n_constexpr + 1;
+	cout << "n_constexpr:" << n_constexpr << endl;
+	cout << "n2:" << n2 << endl;
+	constexpr int n3_constexpr = n_constexpr + n2;
+	cout << "n3_constexpr:" << n3_constexpr << endl;
 
     return 0;
 }

@@ -32,8 +32,8 @@ void t_int() {
 int t_structured_binding() {
     t_int();
 
-    //auto[x, y, z] = f();
-    //std::cout << x << ", " << y << ", " << z << std::endl;
+    auto[x, y, z] = f();
+    std::cout << x << ", " << y << ", " << z << std::endl;
 
     std::tuple<int, double, std::string> tup1 = f();
     cout << std::get<0>(tup1) << endl;
