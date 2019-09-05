@@ -20,6 +20,9 @@ std::tuple<int, double, std::string> f() {
 
 void t_int() {
     int i = 5;
+    cout << i << endl;
+
+    /*
     cout << i << i++ << endl; //vc2013, 65
 
     i = 5;
@@ -27,6 +30,7 @@ void t_int() {
 
     i = 5;
     cout << i << endl << "hello " << ++i << endl;
+    */
 }
 
 int t_structured_binding() {

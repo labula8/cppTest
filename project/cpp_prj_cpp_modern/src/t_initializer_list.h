@@ -11,6 +11,8 @@
 #include <initializer_list>
 #include <vector>
 
+#include "MagicFoo.h"
+
 class Foo {
 public:
     int value_a;
@@ -18,6 +20,7 @@ public:
     Foo(int a, int b) : value_a(a), value_b(b) {}
 };
 
+/*
 class MagicFoo {
 public:
     std::vector<int> vec;
@@ -32,6 +35,7 @@ public:
         }
     }
 };
+*/
 
 void t_init_old(int arr[], int arr_size, std::vector<int> &vec) {
     Foo foo(1, 2);
@@ -61,7 +65,7 @@ int t_initializer_list() {
 
     
     std::cout << "magicFoo: " << std::endl;
-    for (std::vector<int>::iterator it = magicFoo.vec.begin(); it != magicFoo.vec.end(); ++it) {
+    for (std::vector<int>::iterator it = magicFoo.getVec().begin(); it != magicFoo.getVec().end(); ++it) {
         std::cout << *it << std::endl;
     }
     std::cout << "foo2: " << foo2.value_a << ", " << foo2.value_b << std::endl;

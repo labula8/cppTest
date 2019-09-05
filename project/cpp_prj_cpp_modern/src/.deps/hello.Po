@@ -146,7 +146,7 @@ hello.o: hello.cpp /usr/include/stdc-predef.h common.h \
  /opt/rh/devtoolset-8/root/usr/include/c++/8/bits/uniform_int_dist.h \
  t_nullptr.h t_if_switch.h \
  /opt/rh/devtoolset-8/root/usr/include/c++/8/algorithm \
- t_initializer_list.h t_structured_binding.h
+ t_initializer_list.h MagicFoo.h t_structured_binding.h t_auto.h
 
 /usr/include/stdc-predef.h:
 
@@ -498,4 +498,8 @@ t_if_switch.h:
 
 t_initializer_list.h:
 
+MagicFoo.h:
+
 t_structured_binding.h:
+
+t_auto.h:

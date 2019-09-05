@@ -8,6 +8,7 @@
 #include "t_if_switch.h"
 #include "t_initializer_list.h"
 #include "t_structured_binding.h"
+#include "t_auto.h"
 
 using namespace std;
 
@@ -19,7 +20,8 @@ void t_test()
     //t_constexpr();
     //t_if_switch();
     //t_initializer_list();
-    t_structured_binding();
+    //t_structured_binding();
+    t_auto();
 }
 
 int main()
