@@ -26,5 +26,11 @@
     <ClInclude Include="src\common.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\t_lambda.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\t_nullptr.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
