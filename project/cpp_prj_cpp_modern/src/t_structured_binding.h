@@ -18,7 +18,17 @@ std::tuple<int, double, std::string> f() {
     return std::make_tuple(1, 2.3, "456");
 }
 
+void t_int() {
+    int i = 5;
+    cout << i << i++ << endl; //vc2013, 65
+
+    i = 5;
+    cout << i << endl << "hello " << i++ << endl;
+}
+
 int t_structured_binding() {
+    t_int();
+
     //auto[x, y, z] = f();
     //std::cout << x << ", " << y << ", " << z << std::endl;
 
