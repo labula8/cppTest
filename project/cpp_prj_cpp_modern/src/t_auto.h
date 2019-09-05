@@ -125,7 +125,9 @@ constexpr auto iter(Int<i>) {
 void t_decl_type_auto() {
 
 #ifdef STD_CPP_17
-    decltype(int) a_int;
+    //decltype(int) a_int; //ERROR
+    decltype(iter(Int<10>{})) a;
+    cout << getTypeName(a) << endl;
 #endif
 
 }
