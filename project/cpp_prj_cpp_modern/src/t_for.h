@@ -10,9 +10,7 @@ void t_for() {
 
     cout << "==========" << endl;
 
-#ifdef STD_CPP_17
-    for (auto elem : m1) {
+    for (auto elem : m1.vec) {
         cout << "elem=" << elem << endl;
     }
-#endif
 }
