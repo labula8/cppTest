@@ -108,10 +108,33 @@ void t_tail_return_type() {
     return;
 }
 
+#ifdef STD_CPP_17
+
+template <int i>
+struct Int {};
+
+constexpr auto iter(Int<0>)->Int<0>;
+
+template <int i>
+constexpr auto iter(Int<i>) {
+    return iter(Int<i - 1>{});
+}
+
+#endif
+
+void t_decl_type_auto() {
+
+#ifdef STD_CPP_17
+    decltype(int) a_int;
+#endif
+
+}
+
 int t_auto() {
     //t_auto_0();
     //t_decltype();
-    t_tail_return_type();
+    //t_tail_return_type();
+    t_decl_type_auto();
 
     return 0;
 }
