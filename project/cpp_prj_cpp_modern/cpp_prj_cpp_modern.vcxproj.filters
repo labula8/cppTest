@@ -50,5 +50,8 @@
     <ClInclude Include="src\MagicFoo.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\t_for.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

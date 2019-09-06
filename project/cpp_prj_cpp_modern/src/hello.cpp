@@ -9,6 +9,7 @@
 #include "t_initializer_list.h"
 #include "t_structured_binding.h"
 #include "t_auto.h"
+#include "t_for.h"
 
 using namespace std;
 
@@ -21,7 +22,8 @@ void t_test()
     //t_if_switch();
     //t_initializer_list();
     //t_structured_binding();
-    t_auto();
+    //t_auto();
+    t_for();
 }
 
 int main()

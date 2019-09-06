@@ -73,6 +73,7 @@
     <ClInclude Include="src\MagicFoo.h" />
     <ClInclude Include="src\t_auto.h" />
     <ClInclude Include="src\t_constexpr.h" />
+    <ClInclude Include="src\t_for.h" />
     <ClInclude Include="src\t_if_switch.h" />
     <ClInclude Include="src\t_initializer_list.h" />
     <ClInclude Include="src\t_lambda.h" />
