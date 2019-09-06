@@ -70,9 +70,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\MagicFoo.h" />
+    <ClInclude Include="src\t_auto.h" />
+    <ClInclude Include="src\t_constexpr.h" />
+    <ClInclude Include="src\t_if_switch.h" />
+    <ClInclude Include="src\t_initializer_list.h" />
     <ClInclude Include="src\t_lambda.h" />
     <ClInclude Include="src\t_log.h" />
     <ClInclude Include="src\t_nullptr.h" />
+    <ClInclude Include="src\t_structured_binding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

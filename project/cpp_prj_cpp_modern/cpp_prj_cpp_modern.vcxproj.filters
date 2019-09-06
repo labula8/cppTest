@@ -32,5 +32,23 @@
     <ClInclude Include="src\t_nullptr.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\t_constexpr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\t_if_switch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\t_initializer_list.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\t_structured_binding.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\t_auto.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MagicFoo.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

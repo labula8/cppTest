@@ -18,9 +18,9 @@ public:
             std::cout << "foo push_back() " << *it << std::endl;
         }
     }
+
     std::vector<int> getVec() { return vec; }
 
-private:
     std::vector<int> vec;
 };
 
