@@ -14,7 +14,8 @@ void t_decltype() {
     }
 }
 
-int t_auto() {
+
+int t_auto_0() {
     cout << __FUNCTION__ << endl;
 
     MagicFoo magicFoo = {6, 2, 3, 4, 5};
@@ -57,8 +58,60 @@ int t_auto() {
 
     SAFE_DELETE_VEC(arr);
 
+    return 0;
+}
 
-    t_decltype();
+template <typename T1, typename T2, typename T3>
+T1 add1(T2 x, T3 y) {
+    return x + y;
+}
+
+template <typename T1, typename T2>
+auto add2(T1 x, T2 y) -> decltype(x + y) {
+    return x + y;
+}
+
+#ifdef STD_CPP_17
+template <typename T1, typename T2>
+auto add3(T1 x, T2 y) {
+    return x + y;
+}
+#endif
+
+template <typename T>
+const char* getTypeName(T in) {
+    cout << __FUNCTION__ << "# " << typeid(in).name() << endl;
+    return typeid(in).name();
+}
+
+void t_tail_return_type() {
+    int a = 3;
+    int b = 4;
+    int z1 = add1<int, int, int>(a, b);
+    cout << "a=" << a << endl;
+    cout << "b=" << b << endl;
+    cout << "z1=" << z1 << endl;
+    auto z2 = add2<int, int>(a, b);
+    cout << "z2=" << z2 << endl;
+    getTypeName(z2);
+
+    auto z3 = add2<int, double>(a, b*1.3);
+    cout << "z3=" << z3 << endl;
+    getTypeName(z3);
+
+#ifdef STD_CPP_17
+    auto z4 = add3<int, double>(a, b*1.2);
+    cout << "z4=" << z4 << endl;
+    getTypeName(z4);
+#endif
+
+    return;
+}
+
+int t_auto() {
+    //t_auto_0();
+    //t_decltype();
+    t_tail_return_type();
 
     return 0;
 }
