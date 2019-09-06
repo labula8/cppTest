@@ -31,8 +31,8 @@ void t_test()
 int main()
 {	
 	cout << "hello!" << endl;
-	t_test();
-    //t_log();
+	//t_test();
+    t_log();
 
 	return 0;
 }

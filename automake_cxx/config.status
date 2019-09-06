@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/labula8/git/labula8/cppTest/automake_cxx'
+ac_pwd='/data/git/labula8/cppTest/automake_cxx'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/usr/bin/mkdir -p'
@@ -650,12 +650,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/usr/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/install-sh"
-S["MAKEINFO"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/missing automake-1.13"
-S["AUTOCONF"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/missing autoconf"
-S["ACLOCAL"]="${SHELL} /home/labula8/git/labula8/cppTest/automake_cxx/missing aclocal-1.13"
+S["install_sh"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/install-sh"
+S["MAKEINFO"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/missing automake-1.13"
+S["AUTOCONF"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/missing autoconf"
+S["ACLOCAL"]="${SHELL} /data/git/labula8/cppTest/automake_cxx/missing aclocal-1.13"
 S["VERSION"]="1.0"
 S["PACKAGE"]="main"
 S["CYGPATH_W"]="echo"
