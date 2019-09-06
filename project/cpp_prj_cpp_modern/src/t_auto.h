@@ -43,7 +43,7 @@ int t_auto_0() {
     auto c = a + b;
     auto arr = new auto(10);
 
-    cout << "typeid(a).raw_name=" << typeid(a).raw_name() << endl;
+    //cout << "typeid(a).raw_name=" << typeid(a).raw_name() << endl; //ERROR
     cout << "typeid(a).name=" << typeid(a).name() << endl;
 
     //typeof(a);

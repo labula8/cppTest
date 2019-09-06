@@ -159,7 +159,7 @@ AWK = gawk
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -Wall -std=c++17
+CXXFLAGS = -Wall -std=c++17 -DSTD_CPP_17
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
