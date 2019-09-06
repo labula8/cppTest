@@ -24,6 +24,9 @@ void t_int() {
 
     i = 5;
     cout << i << endl << "hello " << i++ << endl;
+
+    i = 5;
+    cout << i << endl << "hello " << ++i << endl;
 }
 
 int t_structured_binding() {
