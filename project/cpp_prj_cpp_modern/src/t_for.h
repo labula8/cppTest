@@ -10,16 +10,7 @@ void t_for() {
 
     cout << "==========" << endl;
 
-<<<<<<< HEAD
-#ifdef STD_CPP_17
-    for (auto elem : m1.vec) {
-        cout << "elem=" << elem << endl;
-    }
-#endif
-}
-=======
     for (auto elem : m1.vec) {
         cout << "elem=" << elem << endl;
     }
 }
->>>>>>> 72af7c73494cdcc938887cb75f27491b0682ca89

@@ -53,5 +53,8 @@
     <ClInclude Include="src\t_for.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\t_lee_dev.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
