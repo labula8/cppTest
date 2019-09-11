@@ -79,6 +79,7 @@
     <ClInclude Include="src\t_lambda.h" />
     <ClInclude Include="src\t_lee_dev.h" />
     <ClInclude Include="src\t_log.h" />
+    <ClInclude Include="src\t_mem_status.h" />
     <ClInclude Include="src\t_nullptr.h" />
     <ClInclude Include="src\t_structured_binding.h" />
   </ItemGroup>

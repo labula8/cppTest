@@ -11,6 +11,7 @@
 #include "t_auto.h"
 #include "t_for.h"
 #include "t_lee_dev.h"
+#include "t_mem_status.h"
 
 using namespace std;
 
@@ -25,7 +26,8 @@ void t_test()
     //t_structured_binding();
     //t_auto();
     //t_for();
-    t_lee_dev();
+    //t_lee_dev();
+    t_mem_status();
 }
 
 int main()
